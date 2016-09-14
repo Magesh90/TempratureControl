@@ -16,3 +16,8 @@ var routeConfiguration = function($routeProvider) {
 
 var BNAccessHome = angular.module("BNAccessHome", [ "ngRoute","ng-fusioncharts" ]);
 BNAccessHome.config(routeConfiguration);
+
+/*BNAccessHome.config(routeConfiguration).controller("BNAccessHomeController",
+		BNAccessHomeController).controller("BNAccessSensorPointController",
+		BNAccessSensorPointController).controller(
+		"BNAccessAccessPointController", BNAccessAccessPointController);*/
