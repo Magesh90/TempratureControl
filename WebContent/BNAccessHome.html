@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>BNAccess Home Page</title>
+<link rel="stylesheet" type="text/css" href="css/firstpage.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="scripts/angular.min.js"></script>
+<script src="scripts/fusioncharts.js"></script>
+<script src="scripts/fusioncharts.charts.js"></script>
+<script src="scripts/angular-route.js"></script>
+<script src="scripts/angular-fusioncharts.min.js"></script>
+<script src="scripts/script.js"></script>
+<script src="scripts/service.js"></script>
+<script src="scripts/BNAccessHome.js"></script>
+<script src="scripts/BNAccessHomeController.js"></script>
+<script src="scripts/BNAccessAccessPointController.js"></script>
+<script src="scripts/BNAccessSensorPointController.js"></script>
+<script src="scripts/BNAccessJSONService.js"></script>
+
+</head>
+<body ng-app="BNAccessHome">
+	<table style="font-family: Arial">
+		<tr>
+			<td colspan="2" class="WebsiteHeader">
+				<h1>BNAccess - Perform your Action</h1>
+			</td>
+		</tr>
+		<tr>
+			<td class="leftmenu"><a href="#/home">Home</a><br /> <a
+				href="#/sensorpoints">Sensor Points</a><br /> <a
+				href="#/AccessPoints">Access Points</a></td>
+			<td class="mainContext"><ng-view></ng-view></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="WebsiteFooter"><b>@CopyRights</b></td>
+		</tr>
+	</table>
+</body>
+</html>

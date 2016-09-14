@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/firstpage.css" />
+<script src="scripts/angular.min.js"></script>
+<script src="scripts/angular-route.js"></script>
+<script src="scripts/script.js"></script>
+<script src="scripts/service.js"></script>
+</head>
+<body ng-app="myApplication" ng-controller="myController">
+	Enter your Name:
+	<input type="text" ng-model="userName" ng-keypress="processedInput(userName)">
+	<br />
+	<br />
+	<p>
+		<font size="12"> <b> Hello {{userName}}, welcome to
+				{{message}} {{login}} </b></font>
+	</p>
+	<br />
+	{{processedInputValue}}
+	
+	<br/><br/>
+	<!-- 	<input type="text" ng-model="resource.Role"> Current Role is
+	{{resource.Role}} -->
+	Show :
+	<input type="number" min=1 max=5 ng-model="showRecords">
+	<br />
+	<br /> Sort By :
+	<select ng-model="sortBy">
+		<option value=""><--select--></option>
+		<option value="+Name">Name</option>
+		<option value="-Role">Role</option>
+	</select>
+	<br />
+	<br />
+	<br /> Search :
+	<input type="text" placeholder="Search Resources"
+		ng-model="searchText.Role">
+	<br />
+	<br />
+	<input type="checkbox" ng-model="hideRole" /> Hide Role
+	<br />
+	<br />
+	<table border>
+		<thead>
+			<tr>
+				<th ng-click="sortData('Name')">Name
+					<div ng-class="getSortClass('Name')"></div>
+				</th>
+				<th ng-click="sortData('Role')" ng-hide="hideRole">Role
+					<div ng-class="getSortClass('Role')"></div>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr
+				ng-repeat="resource1 in resources | limitTo: showRecords | orderBy: sortcolumn:reverseSort
+				 |filter : searchText:false">
+				<td>{{resource1.Name | uppercase | lowercase }}</td>
+				<td ng-hide="hideRole">{{resource1.Role}}</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

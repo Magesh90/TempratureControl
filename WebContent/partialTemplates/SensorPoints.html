@@ -1,0 +1,27 @@
+<h1>{{title}}</h1>
+<div>{{homeScreeMessage}}</div>
+<br />
+<br />
+<table>
+	<tr>
+		<td>{{temperatureJSON}}</td>
+	</tr>
+	<tr>
+		<td>Sensor:</td>
+		<!-- <select ng-model="sensorSelected" >
+		<option ng-repeat="sensor in sensors" value="{{sensor}}">{{sensor}}</option>
+	</select> -->
+		<td><select ng-model="sensorSelected"
+			ng-options="sensor for sensor in sensors">
+				<option value="">-- choose sensor --</option>
+		</select></td>
+		<br />
+		<td>From UTC</td>
+		<td><input type="text" ng-model="fromUTC" /></td>
+		<td>To UTC</td>
+		<td><input type="text" ng-model="toUTC" /></td>
+</table>
+<div>
+	<fusioncharts width="600" height="400" type="line"
+		, datasource="{{dataSource}}" events="events">
+</div>

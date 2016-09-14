@@ -1,0 +1,10 @@
+<h1>{{title}}</h1>
+<div>{{homeScreeMessage}}</div>
+<div ng-repeat="accesspoints in sensorList">
+	<div>
+		<h1>{{accesspoints.accesspoint}} : {{accesspoints.overAllStatus}}</h1>
+		<div ng-repeat="sensor in accesspoints.sensors">
+			<a href="/TempratureControl/#/sensorpoints">{{sensor}}</a>
+		</div>
+	</div>
+</div>
