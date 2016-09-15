@@ -11,6 +11,7 @@
 		<!-- <select ng-model="sensorSelected" >
 		<option ng-repeat="sensor in sensors" value="{{sensor}}">{{sensor}}</option>
 	</select> -->
+
 		<td><select ng-model="sensorSelected"
 			ng-options="sensor for sensor in sensors">
 				<option value="">-- choose sensor --</option>
@@ -21,7 +22,12 @@
 		<td>To UTC</td>
 		<td><input type="text" ng-model="toUTC" /></td>
 </table>
-<div>
-	<fusioncharts width="600" height="400" type="line"
-		, datasource="{{dataSource}}" events="events">
-</div>
+<br />
+<br />
+<br />
+<center>
+	<div>
+		<fusioncharts width="600" height="400" type="line"
+			, datasource="{{dataSource}}" events="events">
+	</div>
+</center>

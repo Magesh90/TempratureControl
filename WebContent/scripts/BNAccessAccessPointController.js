@@ -8,13 +8,13 @@ var BNAccessAccessPointController = function($scope) {
 				accesspoint : "TCS Access Point",
 				overAllStatus : "Green",
 				sensors : [ "Sensor 1", "Sensor 2", "Sensor 3", "Sensor 4",
-						"Sensor 5" ]
+							"Sensor 5" ]
 			},
 			{
 				accesspoint : "TCS Access Point II",
 				overAllStatus : "Green",
 				sensors : [ "Sensor 1", "Sensor 2", "Sensor 3", "Sensor 4",
-						"Sensor 5" ]
+							"Sensor 5" ]
 			} ];
 
 }
