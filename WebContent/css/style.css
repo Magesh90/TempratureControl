@@ -1,24 +1,24 @@
 .WebsiteHeader{
 	width:100%;
 	height:100%;
-	background-color: grey;
+	background-color:  #d9d9d9;
 	text-align: center;
 }
 .WebsiteFooter{
-	background-color: grey;
+	background-color:  #d9d9d9;
 	text-align: center;
 }
 .leftmenu{
-	background-color: grey;
+	background-color:  #d9d9d9;
 	width:20%;
 	height:100%;
 }
 .mainContext{
-	background-color: grey;
+	background-color:  #d9d9d9;
 	width:100%;
 	height:100%;
 }
 .a{
 	display: inline;
-	
+
 }

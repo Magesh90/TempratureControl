@@ -18,20 +18,36 @@
 <script src="scripts/BNAccessSensorPointController.js"></script>
 <script src="scripts/BNAccessJSONService.js"></script>
 <base href="/TempratureControl/"></base>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body ng-app="BNAccessHome">
-	<table style="font-family: Arial">
+	<table align="center" >
+
 		<tr>
 			<td colspan="2" class="WebsiteHeader">
-				<h1>BNAccess - Perform your Action</h1>
+				<div class="jumbotron text-center">
+				<h1> BNAccess - Perform your Action </h1>
+					</div>
 			</td>
 		</tr>
+
 		<tr>
-			<td class="leftmenu"><a href="home">Home</a><br /> <a
-				href="sensorpoints">Sensor Points</a><br /> <a
-				href="AccessPoints">Access Points</a></td>
+			<td class="leftmenu" align="top">
+				 <div class ="well" align="top"> <a href="home">Home</a></div>
+
+				 <div class ="well" > <a href="sensorpoints">Sensor Points</a></div>
+
+				 <div class="well"> <a href="AccessPoints">Access Points</a> </div>
+			 </td>
+
 			<td class="mainContext"><ng-view></ng-view></td>
 		</tr>
+
 		<tr>
 			<td colspan="2" class="WebsiteFooter"><b>@CopyRights</b></td>
 		</tr>
