@@ -16,10 +16,10 @@ var routeConfiguration = function($routeProvider, $locationProvider) {
 	}).otherwise({
 		redirectTo : '/home'
 	});
-	   $locationProvider.html5Mode({
-           enabled: true,
-           requireBase: true
-    })
+	$locationProvider.html5Mode({
+		enabled : true,
+		requireBase : true
+	})
 }
 
 var BNAccessHome = angular.module("BNAccessHome", [ "ngRoute",
