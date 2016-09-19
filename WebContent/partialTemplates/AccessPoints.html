@@ -1,9 +1,10 @@
 <center><h1>{{title}}</h1></center>
 <div>{{homeScreeMessage}}</div>
 <div>
+<input type="hidden" ng-model="accessPointService.accessPointName">
 	<section class="main">
 		<article ng-repeat="accessPoint in accessPoints">
-			<a ng-href="accessPoint/{{accessPoint.name}}"> <img
+			<a ng-click="accessPointService.accessPointName ={{accessPoint.name}}" ng-href="accessPoint/{{accessPoint.name}}"> <img
 				ng-src="../TempratureControl/{{accessPoint.accessPointimage}}"
 				alt="{{accessPoint.name}}" height="120px" width="120px" />
 			</a>
