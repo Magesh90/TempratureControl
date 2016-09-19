@@ -1,0 +1,3 @@
+var BNAccessSelectedAPointController=function($scope){
+	
+}

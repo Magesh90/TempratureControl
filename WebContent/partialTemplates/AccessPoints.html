@@ -1,8 +1,14 @@
-<h1>{{title}}</h1>
+<center><h1>{{title}}</h1></center>
 <div>{{homeScreeMessage}}</div>
-<ul ng-repeat="accesspoints in sensorList">
-	<li><a ng-href=""> <img
-			ng-src="../TempratureControl/{{imageUrl}}"
-			alt="{{accesspoints.accesspoint}}" height="120px" width="120px" />
-	</a></li>
-</ul>
+<div>
+	<section class="main">
+		<article ng-repeat="accessPoint in accessPoints">
+			<a ng-href="accessPoint/{{accessPoint.name}}"> <img
+				ng-src="../TempratureControl/{{accessPoint.accessPointimage}}"
+				alt="{{accessPoint.name}}" height="120px" width="120px" />
+			</a>
+			<br>
+			<b>{{accessPoint.name}}</b>
+		</article>
+	</section>
+</div>

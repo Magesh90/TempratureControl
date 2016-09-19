@@ -4,15 +4,18 @@ var routeConfiguration = function($routeProvider, $locationProvider) {
 	}).when("/home", {
 		templateUrl : "partialTemplates/home.html",
 		controller : "BNAccessHomeController"
+	}).when("/AccessPoints", {
+		templateUrl : "partialTemplates/AccessPoints.html",
+		controller : "BNAccessAccessPointController"
+	}).when("/accessPoint/:selectedAccessPoint", {
+		templateUrl : "partialTemplates/SelectedAccessPoint.html",
+		controller : "BNAccessSelectedAPointController"
 	}).when("/sensorpoints", {
 		templateUrl : "partialTemplates/SensorPoints.html",
 		controller : "BNAccessSensorPointController"
 	}).when("/sensorName/:sensorPoint", {
 		templateUrl : "partialTemplates/SensorPoints.html",
 		controller : "BNAccessSensorPointController"
-	}).when("/AccessPoints", {
-		templateUrl : "partialTemplates/AccessPoints.html",
-		controller : "BNAccessAccessPointController"
 	}).otherwise({
 		redirectTo : '/home'
 	});
