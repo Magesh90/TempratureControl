@@ -1,10 +1,8 @@
 <h1>{{title}}</h1>
 <div>{{homeScreeMessage}}</div>
-<div ng-repeat="accesspoints in sensorList">
-	<div>
-		<h1>{{accesspoints.accesspoint}} : {{accesspoints.overAllStatus}}</h1>
-		<div ng-repeat="sensor in accesspoints.sensors">
-			<a ng-href="sensorName/{{sensor}}">{{sensor}}</a>
-		</div>
-	</div>
-</div>
+<ul ng-repeat="accesspoints in sensorList">
+	<li><a ng-href=""> <img
+			ng-src="../TempratureControl/{{imageUrl}}"
+			alt="{{accesspoints.accesspoint}}" height="120px" width="120px" />
+	</a></li>
+</ul>
