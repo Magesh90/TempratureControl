@@ -1,13 +1,20 @@
+
+<div align="center">
+	<a ng-click="setAccessPoint(accessPoint.name)"
+		ng-href="accessPoint/{{accessPoint.name}}"> <img
+		ng-src="../TempratureControl/{{accessPointimage}}"
+		alt="{{accessPointService.accessPointName}}" height="120px"
+		width="120px" />
+	</a><br> <b>{{accessPointService.accessPointName}}</b>
+</div>
+
 <div>
-<input type="text" ng-model="accessPointService.accessPointName">
-	<!-- <section class="main">
-		<article ng-repeat="accesspoints in sensorList">
-			<a ng-href="accessPoint/{{accesspoints.accesspoint}}"> <img
-				ng-src="../TempratureControl/{{accesspoints.accessPointimage}}"
-				alt="{{accesspoints.accesspoint}}" height="120px" width="120px" />
-			</a>
-			<br>
-			<b>{{accesspoints.accesspoint}}</b>
+	<section class="main">
+		<article ng-repeat="sensor in sensorPoints">
+			<a ng-href="sensor/{{sensor.name}}"> <img
+				ng-src="../TempratureControl/{{sensorPointimage}}"
+				alt="{{sensor.name}}" height="60px" width="60px" />
+			</a> <br> <b>{{sensor.name}}</b>
 		</article>
-	</section> -->
+	</section>
 </div>

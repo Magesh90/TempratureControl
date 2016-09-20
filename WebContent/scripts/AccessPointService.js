@@ -1,3 +1,3 @@
 BNAccessHome.service('accessPointService',function(){
-	this.accessPointName="XXXX";
+	this.accessPointName="";
 })
