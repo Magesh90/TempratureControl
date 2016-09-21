@@ -22,19 +22,45 @@ var BNAccessSensorPointController = function($scope, BNAccessJSONService, $log,$
 			theme : "fint"
 		},
 		data : [ {
-			label : "4:00 PM",
+			label : "1:00 PM",
 			value : "30"
 		}, {
-			label : "5:00 PM",
+			label : "2:00 PM",
 			value : "50"
 		}, {
-			label : "6:00 PM",
+			label : "3:00 PM",
 			value : "25"
+		}, {
+			label : "4:00 PM",
+			value : "37"
+		}, {
+			label : "5:00 PM",
+			value : "35"
+		}, {
+			label : "6:00 PM",
+			value : "38"
+		}, {
+			label : "7:00 PM",
+			value : "42"
+		}, {
+			label : "8:00 PM",
+			value : "44"
+		}, {
+			label : "9:00 PM",
+			value : "40"
+		}, {
+			label : "10:00 PM",
+			value : "38"
 		}, {
 			label : "7:00 PM",
 			value : "20"
 		} ]
 	};
+	
+	$scope.setAccessPoint = function(accessPointName) {
+		$scope.accessPointService.accessPointName = accessPointName;
+		$log.info($scope.accessPointService.accessPointName);
+	}
 }
 
 BNAccessHome.controller("BNAccessSensorPointController",BNAccessSensorPointController);

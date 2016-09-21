@@ -11,10 +11,14 @@
 <div>
 	<section class="main">
 		<article ng-repeat="sensor in sensorPoints">
-			<a ng-href="sensor/{{sensor.name}}"> <img
+			<a ng-click="setSensorPoint(sensor.name)"
+			 ng-href="sensor/{{sensor.name}}"> 
+			 
+			 <img
 				ng-src="../TempratureControl/{{sensorPointimage}}"
 				alt="{{sensor.name}}" height="60px" width="60px" />
 			</a> <br> <b>{{sensor.name}}</b>
 		</article>
 	</section>
 </div>
+

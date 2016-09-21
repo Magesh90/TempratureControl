@@ -21,6 +21,13 @@ var BNAccessSelectedAPointController = function($scope, accessPointService,
 		name : "Sensor V",
 		overAllStatus : "Green"
 	} ];
+	
+	
+	$scope.setSensorPoint = function(sensorPointName) {
+		
+		$scope.accessPointService.sensorPointName = sensorPointName;
+		$log.info($scope.sensorPointService.sensorPointName);
+	}
 }
 
 BNAccessHome.controller("BNAccessSelectedAPointController",
