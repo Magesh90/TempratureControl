@@ -31,6 +31,7 @@ var BNAccessSelectedAPointController = function($scope, accessPointService,
 		LastTempUTC : "04:03",
 		LastTempValueC : 32
 	} ];
+
 	
 	
 	$scope.setSensorPoint = function(sensorPointName) {
@@ -38,6 +39,7 @@ var BNAccessSelectedAPointController = function($scope, accessPointService,
 		$scope.accessPointService.sensorPointName = sensorPointName;
 		$log.info($scope.sensorPointService.sensorPointName);
 	}
+
 
 	var dataArray = [];
 	for (var i = 0; i < $scope.sensorPoints.length; i++) {
