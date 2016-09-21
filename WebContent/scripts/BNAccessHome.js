@@ -4,21 +4,40 @@ var routeConfiguration = function($routeProvider, $locationProvider) {
 	}).when("/home", {
 		templateUrl : "partialTemplates/home.html",
 		controller : "BNAccessHomeController"
-	}).when("/AccessPoints", {
+	})
+	
+	.when("/AccessPoints", {
 		templateUrl : "partialTemplates/AccessPoints.html",
 		controller : "BNAccessAccessPointController"
-	}).when("/accessPoint/:selectedAccessPoint", {
+	})
+	
+	.when("/accessPoint/:selectedAccessPoint", {
 		templateUrl : "partialTemplates/SelectedAccessPoint.html",
 		controller : "BNAccessSelectedAPointController"
-	}).when("/sensorpoints", {
+	})
+	
+	.when("/sensorpoints", {
 		templateUrl : "partialTemplates/SensorPoints.html",
 		controller : "BNAccessSensorPointController"
-	}).when("/sensorName/:sensorPoint", {
+	})
+	
+	/*.when("/sensorName/:sensorPoint", {
 		templateUrl : "partialTemplates/SensorPoints.html",
 		controller : "BNAccessSensorPointController"
-	}).otherwise({
-		redirectTo : '/home'
+	})*/
+	
+	.when("/sensor/:selectedSensor",{
+		templateUrl : "partialTemplates/SelectedSensorPoint.html",
+		controller : "BNAccessSelectedSPointController"
+		
+		
+	})
+	
+	
+	.otherwise({
+		redirectTo : "/home"
 	});
+	
 	$locationProvider.html5Mode({
 		enabled : true,
 		requireBase : true
