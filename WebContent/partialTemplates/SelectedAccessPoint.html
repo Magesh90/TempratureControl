@@ -1,13 +1,14 @@
+<table>
+	<tr>
 
-<div align="center">
-	<a ng-click="setAccessPoint(accessPoint.name)"
-		ng-href="accessPoint/{{accessPoint.name}}"> <img
-		ng-src="../TempratureControl/{{accessPointimage}}"
-		alt="{{accessPointService.accessPointName}}" height="120px"
-		width="120px" />
-	</a><br> <b>{{accessPointService.accessPointName}}</b>
-</div>
-
+	<td>
+		<div align="center">
+			<a ng-click="setAccessPoint(accessPoint.name)" ng-href="AccessPoints">
+				<img ng-src="../TempratureControl/{{accessPointimage}}"
+				alt="{{accessPointService.accessPointName}}" height="120px"
+				width="120px" />
+			</a><br> <b>{{accessPointService.accessPointName}}</b>
+		</div>
 <div>
 	<section class="main">
 		<article ng-repeat="sensor in sensorPoints">
@@ -21,4 +22,16 @@
 		</article>
 	</section>
 </div>
+	
 
+	</td>
+	<td>
+
+
+		<div>
+			<fusioncharts width="600" height="400" type="column2d"
+				datasource="{{dataSourceForSensors}}" events="events">
+		</div>
+	</td>
+	</tr>
+</table>
