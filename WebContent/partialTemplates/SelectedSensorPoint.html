@@ -10,7 +10,7 @@
 					ng-src="../TempratureControl/{{sensorPointimage}}"
 					alt="{{sensor.name}}" height="120px" width="120px" />
 				</a> -->
-				<br> <b>{{accessPointService.sensorPointName}}</b>
+				<br> <b>{{sensorPointService.sensorPointName}}</b>
 
 			</div>
 		</th>
@@ -23,7 +23,7 @@
 	<tr rowspan="12">
 		<td align="center" colspan="2">
 			<div align="center">
-				<a ng-click="setAccessPoint(accessPoint.name)"
+				<a ng-click="setAccessPoint(accessPointService.accessPointName)"
 					ng-href="accessPoint/{{accessPointService.accessPointName}}"> <img
 					ng-src="../TempratureControl/{{accessPointimage}}"
 					alt="{{accessPointService.accessPointName}}" height="60px"

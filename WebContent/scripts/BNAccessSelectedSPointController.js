@@ -1,6 +1,8 @@
 var BNAccessSelectedSPointController = function($scope, accessPointService,sensorPointService,
-		$log) {
+		$log,$templateCache) {
+	$templateCache.removeAll();
 	$scope.accessPointService = accessPointService;
+	$scope.sensorPointService = sensorPointService;
 	$log.info($scope.accessPointService.accessPointName);
 	// initialize the call to rest API through the access point name
 	$scope.accessPointimage="/img/Early_icon_Sensor_Upgrade.png";
@@ -71,9 +73,12 @@ var BNAccessSelectedSPointController = function($scope, accessPointService,senso
 	
 	$scope.setSensorPoint = function(sensorPointName) {
 		$scope.sensorPointService.sensorPointName = sensorPointName;
-		$scope.accessPointService.sensorPointName = sensorPointName;
-		$log.info($scope.sensorPointService.sensorPointName);
-		$log.info($scope.accessPointService.sensorPointName);
+		
+	}
+	
+	$scope.setAccessPoint = function(accessPointName) {
+		$scope.accessPointService.accessPointName = accessPointName;
+		$log.info($scope.accessPointService.accessPointName);
 	}
 }
 

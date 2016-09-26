@@ -1,4 +1,5 @@
-var BNAccessAccessPointController = function($scope, $log, accessPointService) {
+var BNAccessAccessPointController = function($scope, $log, accessPointService,$templateCache) {
+	$templateCache.removeAll();
 	$scope.title = "BNAccess Access Points Page";
 	$scope.homeScreeMessage = "AccessPoints are a holding container for WaSP Devices in the system. "
 			+ "WaSP are used to transmit wireless sensor data over the internet to Bluenica servers. "
@@ -6,23 +7,23 @@ var BNAccessAccessPointController = function($scope, $log, accessPointService) {
 	var imageUrl = "/img/Early_icon_Sensor_Upgrade.png";
 	$scope.accessPointService = accessPointService;
 	$scope.accessPoints = [ {
-		name : "TCS Access Point I",
+		name : "Access Point I",
 		overAllStatus : "Green",
 		accessPointimage : imageUrl
 	}, {
-		name : "TCS Access Point II",
+		name : "Access Point II",
 		overAllStatus : "Green",
 		accessPointimage : imageUrl
 	}, {
-		name : "TCS Access Point III",
+		name : "Access Point III",
 		overAllStatus : "Green",
 		accessPointimage : imageUrl
 	}, {
-		name : "TCS Access Point IV",
+		name : "Access Point IV",
 		overAllStatus : "Green",
 		accessPointimage : imageUrl
 	}, {
-		name : "TCS Access Point V",
+		name : "Access Point V",
 		overAllStatus : "Green",
 		accessPointimage : imageUrl
 	} ];

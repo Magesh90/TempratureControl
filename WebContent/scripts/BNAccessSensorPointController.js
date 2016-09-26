@@ -1,4 +1,5 @@
-var BNAccessSensorPointController = function($scope, BNAccessJSONService, $log,$routeParams) {
+var BNAccessSensorPointController = function($scope, BNAccessJSONService, $log,$routeParams,$templateCache) {
+	$templateCache.removeAll();
 	console.log($routeParams.sensorPoint);
 	$scope.sensorName=$routeParams.sensorPoint;
 	$scope.title = "BNAccess Sensor Points Page";
