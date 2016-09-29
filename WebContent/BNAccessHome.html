@@ -7,24 +7,17 @@
 <link rel="stylesheet" type="text/css" href="css/firstpage.css" />
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/section.css" />
-<script src="scripts/angular.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<script src="scripts/angular.js"></script>
 <script src="scripts/fusioncharts.js"></script>
 <script src="scripts/fusioncharts.charts.js"></script>
 <script src="scripts/angular-route.js"></script>
 <script src="scripts/angular-fusioncharts.min.js"></script>
-<script src="scripts/script.js"></script>
-<script src="scripts/service.js"></script>
 <script src="scripts/BNAccessHome.js"></script>
-<script src="scripts/BNAccessHomeController.js"></script>
-<script src="scripts/BNAccessAccessPointController.js"></script>
-<script src="scripts/BNAccessSensorPointController.js"></script>
-<script src="scripts/BNAccessSelectedAPointController.js"></script>
-<script src="scripts/BNAccessSelectedAPointController.js"></script>
-<script src="scripts/BNAccessSelectedSPointController.js"></script>
-<script src="scripts/AccessPointService.js"></script>
-<script src="scripts/SensorPointService.js"></script>
+<script src="scripts/BNAService.js"></script>
+<script src="scripts/controllers.js"></script>
 <script src="scripts/BNAccessJSONService.js"></script>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
@@ -51,7 +44,7 @@
 				 <div class="well"> <a href="AccessPoints">Access Points</a> </div>
 			 </td>
 			 
-			<td class="mainContext"><ng-view></ng-view></td>
+			<td class="mainContext"><div ng-view/></div></td>
 		</tr>
 		
 		<tr>
