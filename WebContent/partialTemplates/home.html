@@ -1,22 +1,26 @@
-<h1>{{title}}</h1>
-<div>{{homeScreeMessage}}</div>
-<br />
-<br />
-<div align="center">
-	<form ng-submit="userlogin()">
-		<table>
-			<tr>
-				<td><label id="userName">UserName:</label></td>
-				<td><input type="text" ng-model="userName" /></td>
-			</tr>
-			<tr>
-				<td><label id="password">Password:</label></td>
-				<td><input type="text" ng-model="password" /></td>
-			</tr>
-			<tr>
-				<td />
-				<td colspan="2"><input type="submit" value="Login" /></td>
-			</tr>
-		</table>
-	</form>
+<div ng-include src="'partialTemplates/menu.html'"></div>
+<div class="container" id="container">
+	<div class="post-wrapper">
+		<h1>{{title}}</h1>
+		<div>{{homeScreeMessage}}</div>
+	</div>
+	<br /> <br />
+	<div class="blog-post-label" align="center">
+		<form ng-submit="userlogin()">
+			<table>
+				<tr>
+					<td><label id="userName">UserName:</label></td>
+					<td><input type="text" ng-model="userName" /></td>
+				</tr>
+				<tr>
+					<td><label id="password">Password:</label></td>
+					<td><input type="text" ng-model="password" /></td>
+				</tr>
+				<tr>
+					<td />
+					<td colspan="2"><input type="submit" value="Login" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
 </div>

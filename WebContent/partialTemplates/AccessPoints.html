@@ -1,16 +1,21 @@
-<center><h1>{{title}}</h1></center>
-<div>{{homeScreeMessage}}</div>
-<div>
-	<section class="main">
-		<article ng-repeat="accessPoint in accessPoints">
-			<a ng-click="setAccessPoint(accessPoint.name)" ng-href="accessPoint/{{accessPoint.name}}"> <img
-				ng-src="../TempratureControl/{{accessPoint.accessPointimage}}"
-				alt="{{accessPoint.name}}" height="120px" width="120px" />
-			</a>
-			<br>
-			<b>{{accessPoint.name}}</b>
-			<br>
-			<b>{{accessPoint.overAllStatus}}</b>
-		</article>
-	</section>
+<div ng-include src="'partialTemplates/menu.html'"></div>
+<div class="container" id="container">
+	<div class="post-wrapper">
+		<div>
+			<h1>{{title}}</h1>
+		</div>
+		<div>{{homeScreeMessage}}</div>
+	</div>
+
+	<div>
+		<section class="main">
+			<article ng-repeat="accessPoint in accessPoints">
+				<a ng-click="setAccessPoint(accessPoint.name)"
+					ng-href="accessPoint/{{accessPoint.name}}"> <img
+					ng-src="../TempratureControl/{{accessPoint.accessPointimage}}"
+					alt="{{accessPoint.name}}" height="120px" width="120px" />
+				</a> <br> <b>{{accessPoint.name}}</b> <br> <b>{{accessPoint.overAllStatus}}</b>
+			</article>
+		</section>
+	</div>
 </div>

@@ -4,28 +4,33 @@
 <meta charset="ISO-8859-1">
 <title>BNAccess Home Page</title>
 <base href="/TempratureControl/"></base>
+<link rel="stylesheet" type="text/css" media="screen"
+	href="css/BNAccess.css" />
 <link rel="stylesheet" type="text/css" href="css/firstpage.css" />
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/section.css" />
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
 <script src="scripts/angular.js"></script>
 <script src="scripts/fusioncharts.js"></script>
 <script src="scripts/fusioncharts.charts.js"></script>
 <script src="scripts/angular-route.js"></script>
 <script src="scripts/angular-fusioncharts.min.js"></script>
-<script src="scripts/BNAccessHome.js"></script>
+<script src="scripts/BNAccessApp.js"></script>
 <script src="scripts/BNAService.js"></script>
 <script src="scripts/controllers.js"></script>
 <script src="scripts/BNAccessJSONService.js"></script>
 
 <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="scripts/bootstrap.js"></script>
 </head>
 <body ng-app="BNAccessHome">
-	<table align="center" >
+	<div ng-view></div>
+	<!-- <table align="center" >
 
 		<tr>
 			<td colspan="2" class="WebsiteHeader">
@@ -50,6 +55,6 @@
 		<tr>
 			<td colspan="2" class="WebsiteFooter"><b>@CopyRights</b></td>
 		</tr>
-	</table>
+	</table> -->
 </body>
 </html>
