@@ -1,12 +1,13 @@
 article {
-  float: left;
-  width: 23%;
-/*   background: olive; */
-  margin: 10px 1%;
-  padding: 1%;
+	float: left;
+	width: 23%;
+	/*   background: olive; */
+	margin: 10px 1%;
+	padding: 1%;
 }
 
 @media all and (max-width: 900px) {
-article {
-    width: 48%
-  }
+	article {
+		width: 48%
+	}
+}

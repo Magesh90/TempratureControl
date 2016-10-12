@@ -1,44 +1,48 @@
-<table>
-	<tr>
 
-	
-	<td>
-		<div align="center">
-			<a ng-href="AccessPoints">
-				<img ng-src="../TempratureControl/{{accessPointimage}}"
-				alt="{{accessPointService.accessPointName}}" height="120px"
-				width="120px" />
-			</a><br> <b>{{accessPointService.accessPointName}}</b>
-		</div>
+<div ng-include src="'partialTemplates/menu.html'"></div>
+<div class="container" id="container">
+	<div class="post-wrapper">
+		<table>
+			<tr>
 
-		
-		
-<div>
-	<section class="main">
-		<article ng-repeat="sensor in sensorPoints">
-			<a ng-click="setSensorPoint(sensor.name)"
-			 ng-href="sensor/{{sensor.name}}"> 
-			 
-			 <img
-				ng-src="../TempratureControl/{{sensorPointimage}}"
-				alt="{{sensor.name}}" height="60px" width="60px" />
-			</a> <br> <b>{{sensor.name}}</b>
-		</article>
-	</section>
+
+				<td>
+					<div align="center">
+						<a ng-href="AccessPoints"> <img
+							ng-src="../TempratureControl/{{accessPointimage}}"
+							alt="{{accessPointService.accessPointName}}" height="120px"
+							width="120px" />
+						</a><br> <b>{{accessPointService.accessPointName}}</b>
+					</div> <br /> <br />
+					<div align="center">
+						<label> Search : </label> <input type="text"
+							ng-model="filterSensorPoint" />
+					</div>
+
+					<div>
+						<section class="main">
+							<article
+								ng-repeat="sensor in sensorPoints |filter:filterSensorPoint">
+								<a ng-click="setSensorPoint(sensor.name)"
+									ng-href="sensor/{{sensor.name}}"> <img
+									ng-src="../TempratureControl/{{sensorPointimage}}"
+									alt="{{sensor.name}}" height="60px" width="60px" />
+								</a> <br> <b>{{sensor.name}}</b>
+							</article>
+						</section>
+					</div>
+
+
+				</td>
+				<td>
+
+
+					<div>
+						<fusioncharts width="600" height="400" type="column2d"
+							datasource="{{dataSourceForSensors}}" events="events">
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
 </div>
-	
-
-	</td>
-	<td>
-
-
-		<div>
-			<fusioncharts width="600" height="400" type="column2d"
-				datasource="{{dataSourceForSensors}}" events="events">
-		</div>
-	</td>
-	</tr>
-
-		
-
-</table>

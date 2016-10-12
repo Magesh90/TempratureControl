@@ -6,10 +6,13 @@
 		</div>
 		<div>{{homeScreeMessage}}</div>
 	</div>
-
+	<div align="center">
+	<label> Search : </label>
+		<input type="text" ng-model="filterAccessPoint" />
+	</div>
 	<div>
 		<section class="main">
-			<article ng-repeat="accessPoint in accessPoints">
+			<article ng-repeat="accessPoint in accessPoints | filter:filterAccessPoint">
 				<a ng-click="setAccessPoint(accessPoint.name)"
 					ng-href="accessPoint/{{accessPoint.name}}"> <img
 					ng-src="../TempratureControl/{{accessPoint.accessPointimage}}"

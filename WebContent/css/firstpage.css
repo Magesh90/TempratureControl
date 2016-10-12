@@ -1,7 +1,7 @@
 @CHARSET "ISO-8859-1";
 
 .arrow-up {
-	width :0;
+	width: 0;
 	height: 0;
 	border-left: 5px solid transparent;
 	border-right: 5px solid transparent;
@@ -10,7 +10,7 @@
 }
 
 .arrow-down {
-	width :0;
+	width: 0;
 	height: 0;
 	border-left: 5px solid transparent;
 	border-right: 5px solid transparent;

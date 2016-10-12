@@ -1,3 +1,4 @@
+var BNAccessControllers = angular.module('BNAccessControllers', []);
 var BNAccessHomeController = function($scope, $location, $templateCache) {
 	$templateCache.removeAll();
 	$scope.title = "BNAccess Home Page";
@@ -55,7 +56,7 @@ var BNAccessAccessPointController = function($scope, $log, accessPointService,
 }
 
 var BNAccessSelectedAPointController = function($scope, accessPointService,
-		sensorPointService, $log, $templateCache) {
+		sensorPointService, RestService1, $log, $templateCache) {
 	$templateCache.removeAll();
 	$scope.accessPointService = accessPointService;
 	$scope.sensorPointService = sensorPointService;
@@ -96,6 +97,20 @@ var BNAccessSelectedAPointController = function($scope, accessPointService,
 		$log.info($scope.sensorPointService.sensorPointName);
 	}
 
+	// Get the list of sensors with the accesspoint ID from $routeParams or from
+	// AccessPointService
+	var restResponse;
+	RestService1.get({
+		//name : $scope.accessPointService.accessPointName
+	}, function success(response) {
+		console.log("Success -- "+JSON.stringify(response));
+		restResponse = response;
+	}, function error(errorResponse) {
+		console.log("Error: " + JSON.stringify(errorResponse));
+	})
+	
+	// Rest service call end
+	
 	var dataArray = [];
 	for (var i = 0; i < $scope.sensorPoints.length; i++) {
 		dataArray.push({
@@ -123,15 +138,15 @@ var BNAccessSelectedAPointController = function($scope, accessPointService,
 	};
 }
 
-var BNAccessSelectedSPointController = function($scope, accessPointService,sensorPointService,
-		$log,$templateCache) {
+var BNAccessSelectedSPointController = function($scope, accessPointService,
+		sensorPointService, $log, $templateCache) {
 	$templateCache.removeAll();
 	$scope.accessPointService = accessPointService;
 	$scope.sensorPointService = sensorPointService;
 	$log.info($scope.accessPointService.accessPointName);
 	// initialize the call to rest API through the access point name
-	$scope.accessPointimage="/img/Early_icon_Sensor_Upgrade.png";
-	$scope.sensorPointimage="/img/sensor_icon.png";
+	$scope.accessPointimage = "/img/Early_icon_Sensor_Upgrade.png";
+	$scope.sensorPointimage = "/img/sensor_icon.png";
 	$scope.sensorPoints = [ {
 		name : "Sensor I",
 		overAllStatus : "Green"
@@ -148,79 +163,7 @@ var BNAccessSelectedSPointController = function($scope, accessPointService,senso
 		name : "Sensor V",
 		overAllStatus : "Green"
 	} ];
-	
-	$scope.dataSource = {
-			chart : {
-				caption : "Temperature Time Graph",
-				subCaption : $scope.sensorSelected,
-				xAxisName : "Time",
-				yAxisName : "Temperature",
-				numberSuffix : "F",
-				showValues : "0",
-				theme : "fint"
-			},
-			data : [ {
-				label : "1:00 PM",
-				value : "30"
-			}, {
-				label : "2:00 PM",
-				value : "50"
-			}, {
-				label : "3:00 PM",
-				value : "25"
-			}, {
-				label : "4:00 PM",
-				value : "37"
-			}, {
-				label : "5:00 PM",
-				value : "35"
-			}, {
-				label : "6:00 PM",
-				value : "38"
-			}, {
-				label : "7:00 PM",
-				value : "42"
-			}, {
-				label : "8:00 PM",
-				value : "44"
-			}, {
-				label : "9:00 PM",
-				value : "40"
-			}, {
-				label : "10:00 PM",
-				value : "38"
-			}, {
-				label : "7:00 PM",
-				value : "20"
-			} ]
-		};
-		
-	
-	$scope.setSensorPoint = function(sensorPointName) {
-		$scope.sensorPointService.sensorPointName = sensorPointName;
-		
-	}
-	
-	$scope.setAccessPoint = function(accessPointName) {
-		$scope.accessPointService.accessPointName = accessPointName;
-		$log.info($scope.accessPointService.accessPointName);
-	}
-}
 
-var BNAccessSensorPointController = function($scope, BNAccessJSONService, $log,$routeParams,$templateCache) {
-	$templateCache.removeAll();
-	console.log($routeParams.sensorPoint);
-	$scope.sensorName=$routeParams.sensorPoint;
-	$scope.title = "BNAccess Sensor Points Page";
-	$scope.homeScreeMessage = "SensorPoints are a holding container for sensor Devices in the system. "
-			+ "All data from a sensor Device is assigned to the SensorPoint containing it.";
-	$scope.sensors = [ "Sensor 1", "Sensor 2", "Sensor 3", "Sensor 4",
-			"Sensor 5" ];
-	$scope.sensorSelected = $scope.sensorName;
-	$log.info($scope.sensorSelected);
-	$scope.temperatureJSON = BNAccessJSONService.getJson();
-	// console.log($scope.temperatureJSON);
-	//$log.info($scope.temperatureJSON);
 	$scope.dataSource = {
 		chart : {
 			caption : "Temperature Time Graph",
@@ -266,19 +209,92 @@ var BNAccessSensorPointController = function($scope, BNAccessJSONService, $log,$
 			value : "20"
 		} ]
 	};
-	
+
+	$scope.setSensorPoint = function(sensorPointName) {
+		$scope.sensorPointService.sensorPointName = sensorPointName;
+
+	}
+
 	$scope.setAccessPoint = function(accessPointName) {
 		$scope.accessPointService.accessPointName = accessPointName;
 		$log.info($scope.accessPointService.accessPointName);
 	}
 }
 
+var BNAccessSensorPointController = function($scope, BNAccessJSONService, $log,
+		$routeParams, $templateCache) {
+	$templateCache.removeAll();
+	console.log($routeParams.sensorPoint);
+	$scope.sensorName = $routeParams.sensorPoint;
+	$scope.title = "BNAccess Sensor Points Page";
+	$scope.homeScreeMessage = "SensorPoints are a holding container for sensor Devices in the system. "
+			+ "All data from a sensor Device is assigned to the SensorPoint containing it.";
+	$scope.sensors = [ "Sensor 1", "Sensor 2", "Sensor 3", "Sensor 4",
+			"Sensor 5" ];
+	$scope.sensorSelected = $scope.sensorName;
+	$log.info($scope.sensorSelected);
+	$scope.temperatureJSON = BNAccessJSONService.getJson();
+	// console.log($scope.temperatureJSON);
+	// $log.info($scope.temperatureJSON);
+	$scope.dataSource = {
+		chart : {
+			caption : "Temperature Time Graph",
+			subCaption : $scope.sensorSelected,
+			xAxisName : "Time",
+			yAxisName : "Temperature",
+			numberSuffix : "F",
+			showValues : "0",
+			theme : "fint"
+		},
+		data : [ {
+			label : "1:00 PM",
+			value : "30"
+		}, {
+			label : "2:00 PM",
+			value : "50"
+		}, {
+			label : "3:00 PM",
+			value : "25"
+		}, {
+			label : "4:00 PM",
+			value : "37"
+		}, {
+			label : "5:00 PM",
+			value : "35"
+		}, {
+			label : "6:00 PM",
+			value : "38"
+		}, {
+			label : "7:00 PM",
+			value : "42"
+		}, {
+			label : "8:00 PM",
+			value : "44"
+		}, {
+			label : "9:00 PM",
+			value : "40"
+		}, {
+			label : "10:00 PM",
+			value : "38"
+		}, {
+			label : "7:00 PM",
+			value : "20"
+		} ]
+	};
 
-BNAccessHome.controller("BNAccessHomeController", BNAccessHomeController);
-BNAccessHome.controller("BNAccessAccessPointController",
+	$scope.setAccessPoint = function(accessPointName) {
+		$scope.accessPointService.accessPointName = accessPointName;
+		$log.info($scope.accessPointService.accessPointName);
+	}
+}
+
+BNAccessControllers
+		.controller("BNAccessHomeController", BNAccessHomeController);
+BNAccessControllers.controller("BNAccessAccessPointController",
 		BNAccessAccessPointController);
-BNAccessHome.controller("BNAccessSelectedAPointController",
+BNAccessControllers.controller("BNAccessSelectedAPointController",
 		BNAccessSelectedAPointController);
-BNAccessHome.controller("BNAccessSelectedSPointController",
+BNAccessControllers.controller("BNAccessSelectedSPointController",
 		BNAccessSelectedSPointController);
-BNAccessHome.controller("BNAccessSensorPointController",BNAccessSensorPointController);
+BNAccessControllers.controller("BNAccessSensorPointController",
+		BNAccessSensorPointController);

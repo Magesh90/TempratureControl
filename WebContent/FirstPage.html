@@ -11,17 +11,18 @@
 </head>
 <body ng-app="myApplication" ng-controller="myController">
 	Enter your Name:
-	<input type="text" ng-model="userName" ng-keypress="processedInput(userName)">
+	<input type="text" ng-model="userName"
+		ng-keypress="processedInput(userName)">
 	<br />
 	<br />
 	<p>
 		<font size="12"> <b> Hello {{userName}}, welcome to
 				{{message}} {{login}} </b></font>
 	</p>
+	<br /> {{processedInputValue}}
+
 	<br />
-	{{processedInputValue}}
-	
-	<br/><br/>
+	<br />
 	<!-- 	<input type="text" ng-model="resource.Role"> Current Role is
 	{{resource.Role}} -->
 	Show :
