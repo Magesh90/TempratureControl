@@ -1,12 +1,59 @@
 var BNAccessControllers = angular.module('BNAccessControllers', []);
-var BNAccessHomeController = function($scope, $location, $templateCache) {
-	$templateCache.removeAll();
+var BNAccessHomeController = function($scope, $rootScope, $location,
+		AuthenticationService, loginService, setToken) {
+	var userName = $scope.userName;
+	var userPassword = $scope.password;
 	$scope.title = "BNAccess Home Page";
-	$scope.homeScreeMessage = "The BNAccess API is designed to deliver system and sensor data to Bluenica customers and partners.";
+	$scope.homeScreeMessage = "The BNAccess API is designed to deliver system and"
+			+ " sensor data to Bluenica customers and partners.";
 	$scope.userlogin = function() {
-		if ($scope.userName != null && $scope.password != null)
-			$location.path("/AccessPoints");
-		else
+		// Code for authenticating the user - from the book
+		var postData = {
+			"userName" : userName,
+			"userPassword" : userPassword
+		}
+		loginService
+				.login(
+						{},
+						postData,
+						function success(response) {
+							console.log("Success Authentication for the "
+									+ "method provided in book");
+							if (response.authenticated) {
+								setToken(userName);
+								$location.path("/AccessPoints");
+							} else {
+								console
+										.log("Success Authentication from JS, but failed from the REST call ");
+								$scope.error = response.message;
+								$location.path("/home")
+							}
+
+						}, function error(errorResponse) {
+							console.log("Failed Authentication for the "
+									+ "method provided in book "
+									+ JSON.stringify(errorResponse));
+							$scope.error = errorResponse.message;
+							$location.path("/home")
+						});
+		// end of calling the authentication service from LoginService
+
+		AuthenticationService.clearCredentials();
+		if ($scope.userName != null && $scope.password != null) {
+			AuthenticationService.Login(userName, userPassword, function(
+					response) {
+				if (response.success) {
+					AuthenticationService.setCredentials(userName,
+							userPassword, response.SessionToken,
+							response.UserAccountID);
+					$location.path("/AccessPoints");
+				} else {
+					$scope.error = response.message;
+					$location.path("/home");
+				}
+			});
+			// $location.path("/AccessPoints");
+		} else
 			$location.path("/home");
 	}
 }
@@ -101,16 +148,16 @@ var BNAccessSelectedAPointController = function($scope, accessPointService,
 	// AccessPointService
 	var restResponse;
 	RestService1.get({
-		//name : $scope.accessPointService.accessPointName
+	// name : $scope.accessPointService.accessPointName
 	}, function success(response) {
-		console.log("Success -- "+JSON.stringify(response));
+		console.log("Success -- " + JSON.stringify(response));
 		restResponse = response;
 	}, function error(errorResponse) {
 		console.log("Error: " + JSON.stringify(errorResponse));
 	})
-	
+
 	// Rest service call end
-	
+
 	var dataArray = [];
 	for (var i = 0; i < $scope.sensorPoints.length; i++) {
 		dataArray.push({

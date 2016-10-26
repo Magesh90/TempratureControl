@@ -44,6 +44,7 @@ var routeConfiguration = function($routeProvider, $locationProvider) {
 }
 
 var BNAccessHome = angular.module("BNAccessHome", [ "ngRoute",
-		"ng-fusioncharts", "BNAccessControllers", "BNAccessRestServices" ]);
+		"ng-fusioncharts", "BNAccessControllers", "BNAccessRestServices",
+		"bnaBusinessServices" ]);
 
 BNAccessHome.config(routeConfiguration);
